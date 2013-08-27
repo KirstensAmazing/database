@@ -58,7 +58,7 @@ template "/mnt/aws-config/config" do
 end
 
 git "/opt/ec2_mysql" do
-  repository "git://github.com/jtimberman/ec2_mysql.git"
+  repository node['mysql']['repository']
   reference "HEAD"
   action :sync
   not_if { ::FileTest.directory?("/opt/ec2_mysql/.git") }
